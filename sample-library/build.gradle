@@ -1,0 +1,18 @@
+apply plugin: 'com.android.library'
+
+android {
+  compileSdkVersion androidConfig.compileSdkVersion
+  buildToolsVersion androidConfig.buildToolsVersion
+
+  defaultConfig {
+    minSdkVersion androidConfig.minSdkVersion
+    targetSdkVersion androidConfig.compileSdkVersion
+  }
+}
+
+dependencies {
+  implementation project(':deeplinkdispatch')
+  annotationProcessor project(':deeplinkdispatch-processor')
+  implementation deps.appCompat
+  testImplementation deps.junit
+}

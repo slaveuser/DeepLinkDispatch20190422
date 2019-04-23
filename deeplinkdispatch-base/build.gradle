@@ -1,0 +1,22 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.7
+
+apply plugin: 'checkstyle'
+
+apply from: '../gradle-maven-push.gradle'
+
+
+dependencies {
+  implementation deps.okio
+  implementation deps.jsr305
+  testImplementation deps.junit
+  testImplementation deps.assertJ
+}
+
+checkstyle {
+  configFile rootProject.file('checkstyle.xml')
+  showViolations true
+  configProperties = ['checkstyle.cache.file': rootProject.file('build/checkstyle.cache')]
+}
+
